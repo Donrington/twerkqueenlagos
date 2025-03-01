@@ -60,46 +60,46 @@
 
 
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <!-- Video element behind the scenes -->
-      <video 
-        id="heroVideo" 
-        class="hero-video hidden" 
-        autoplay 
-        muted 
-        loop 
-        playsinline
-      >
-        <source src="twerk2.mp4" type="video/mp4" />
-        <!-- If the browser doesn't support the video, fallback image is used -->
-      </video>
-    
-      <div class="hero-content">
-        <!-- Small Tagline / Mini Text -->
-        <p class="mini-tagline">The Ultimate Dance Showdown</p>
-        
-        <!-- Main Title in Poiret One -->
-        <h1 class="hero-title">TWERK QUEEN LAGOS</h1>  
-    
-        <!-- Subheading with Montserrat -->
-        <p class="hero-subtitle">
-          ONE Finale Winner Takes Home 
-          <strong>N10 MILLION</strong><br/>
-          Every Last Thursday of the Month!!!
-        </p>
-        
-        <!-- CTA Button -->
-        <a href="#register" class="cta-button">Let’s Twerk</a>
-      </div>
-      
-      <!-- Scroll Indicator -->
-      <div class="scroll-indicator">
-        <a href="#competition">&#x2193; Scroll for more</a>
-      </div>
-    </section>
-    
+<!-- Hero Section -->
+<section class="hero">
+  <!-- Video element behind the scenes -->
+  <video 
+    id="heroVideo" 
+    class="hero-video hidden" 
+    autoplay 
+    muted 
+    loop 
+    playsinline
+  >
+    <source src="twerk2.mp4" type="video/mp4" />
+    <!-- If the browser doesn't support the video, fallback image is used -->
+  </video>
 
+  <div class="hero-content">
+    <!-- Small Tagline / Mini Text -->
+    <p class="mini-tagline">The Ultimate Dance Showdown</p>
+    
+    <!-- Main Title in Poiret One -->
+    <h1 class="hero-title">TWERK QUEEN LAGOS</h1>
+
+    <!-- Subheading with Montserrat -->
+    <p class="hero-subtitle">
+      ONE Finale Winner Takes Home 
+      <strong>N10 MILLION</strong><br/>
+      Every Last Thursday of the Month!!!
+    </p>
+    
+    <!-- Arrow Down: on click, it scrolls to #competition -->
+    <a href="#countdown" class="down-arrow">
+      <!-- You can use an inline SVG, icon font, or ASCII arrow. 
+           Here's a simple inline SVG example: -->
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 9l6 6 6-6"></path>
+      </svg>
+    </a>
+  </div>
+</section>
 
 
     <section class="marquee-section">
@@ -118,7 +118,7 @@
     </section>
     
     
-    <section class="countdown-section" >
+    <section class="countdown-section" id="countdown">
       <!-- Parallax Background -->
       <div class="parallax-background"></div>
       <!-- Floating/Blurry Shapes for extra parallax motion -->
@@ -855,7 +855,17 @@ document.addEventListener("DOMContentLoaded", function() {
     // When the video is ready to play, fade it in
     heroVideo.addEventListener("canplay", () => {
       heroVideo.classList.remove("hidden");
-      heroVideo.style.opacity = "1"; // triggers the CSS transition
+      heroVideo.style.opacity = "2"; // triggers the CSS transition
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const arrowLink = document.querySelector('.down-arrow');
+    arrowLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelector('#countdown').scrollIntoView({
+        behavior: 'smooth'
+      });
     });
   });
 

@@ -392,49 +392,54 @@ nav {
   animation-delay: 0.9s;
 }
 
-.cta-button {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  background-color: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-  padding: 15px 40px;
-  text-decoration: none;
-  border-radius: 50px;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  opacity: 0;
+/* HERO SECTION remains the same as your original, 
+   minus the .cta-button code (removed).
+   We'll add .down-arrow styling and an animation. 
+*/
+
+/* Down Arrow Link */
+.down-arrow {
+  display: inline-block;
+  margin-top: 30px; /* A bit of spacing under the subtitle */
+  opacity: 0;       /* Start hidden so we can fade it in with the same keyframes */
   animation: fadeInUp 1.5s ease-out forwards;
-  animation-delay: 1.2s;
-}
-.cta-button:hover {
-  background-color: #fff;
-  color: #000;
+  animation-delay: 1.2s; /* Show arrow after content appears */
+  transition: transform 0.3s ease;
 }
 
-/* Scroll Indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  animation: fadeInUp 1.5s ease-out forwards;
-  animation-delay: 1.5s;
-}
-.scroll-indicator a {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.85rem;
-  color: #fff;
-  text-decoration: none;
-  letter-spacing: 2px;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
-}
-.scroll-indicator a:hover {
-  border-color: #fff;
+/* Hover effect: arrow nudges downward slightly */
+.down-arrow:hover {
+  transform: translateY(5px);
 }
 
+/* Optional: 
+   You could add a "bouncing" animation if you want the arrow 
+   to gently move up/down. For example:
+*/
+.down-arrow {
+  animation: fadeInUp 1.5s ease-out forwards, arrowBounce 1.5s infinite 2s ease-in-out;
+  /* arrowBounce starts 2s after fadeInUp finishes */
+}
+
+@keyframes arrowBounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(5px); }
+  100% { transform: translateY(0); }
+}
+
+/* The rest of your existing hero content styles (mini-tagline, hero-title, etc.) remain unchanged. 
+   Just remove the .cta-button block. 
+*/
+
+/* Example: if you want the arrow to be bigger on small screens,
+   add a media query:
+   @media (max-width: 768px) {
+     .down-arrow svg {
+       width: 50px;
+       height: 50px;
+     }
+   }
+*/
 /* Keyframes for the fadeInUp */
 @keyframes fadeInUp {
   0% {

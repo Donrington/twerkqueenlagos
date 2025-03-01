@@ -1501,16 +1501,12 @@ nav {
 }
 
 
-
-
-/* Finalists Section */
+/* ================ FINALISTS AVATARS SECTION ================ */
 .finalists-section {
-  background-color: #0a0a0a;
+  background-color: #000;
   padding: 60px 30px;
   text-align: center;
   color: #fff;
-  position: relative;
-  z-index: 1;
 }
 
 .finalists-container {
@@ -1519,44 +1515,46 @@ nav {
 }
 
 .finalists-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 900;
-  color: #b93a36; /* Accent Color */
+  color: #b93a36; /* Accent color */
   margin-bottom: 20px;
-  letter-spacing: 3px;
-  animation: fadeIn 1s ease-out;
+  letter-spacing: 2px;
 }
 
 .finalists-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #ddd;
   margin-bottom: 40px;
-  animation: fadeIn 1.2s ease-out;
-  animation-delay: 0.5s;
+  line-height: 1.6;
 }
 
-.finalists-avatars {
+/* Avatar Grid */
+.avatar-grid {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 30px;
 }
 
+/* Individual Finalist Card */
 .finalist {
   width: 180px;
-  text-align: center;
-  background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+  background: linear-gradient(135deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5));
   border-radius: 15px;
+  text-align: center;
   padding: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .finalist:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
 
+/* Avatar Styles */
 .avatar {
   width: 100%;
   height: 180px;
@@ -1567,79 +1565,138 @@ nav {
 }
 
 .avatar:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
+/* Finalist Name */
 .finalist-name {
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 700;
   color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-.vote-container {
-  margin-top: 10px;
+/* Vote count (or any brief tagline) */
+.vote-count {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 12px;
 }
 
+/* “Vote” Button => triggers instructions pop-up */
 .vote-btn {
   background-color: #b93a36;
   color: #fff;
-  padding: 12px 20px;
+  border: none;
   font-size: 1rem;
+  padding: 10px 20px;
   border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  width: 100%;
-  box-sizing: border-box;
+  transition: all 0.3s ease;
 }
-
 .vote-btn:hover {
   background-color: #fff;
   color: #b93a36;
   transform: scale(1.05);
 }
 
-.vote-btn:focus {
-  outline: none;
+/* ================ HISTOGRAM STANDINGS SECTION ================ */
+.histogram-section {
+  background-color: #0a0a0a;
+  padding: 60px 30px;
+  text-align: center;
+  color: #fff;
 }
 
-.vote-container p {
-  margin-top: 5px;
-  font-size: 0.9rem;
+.histogram-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.histogram-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #b93a36;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.histogram-subtitle {
+  font-size: 1.2rem;
   color: #ddd;
-  font-weight: 600;
+  margin-bottom: 40px;
+  line-height: 1.6;
 }
 
+/* The histogram container (like a chart) */
+.histogram {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* Each bar wrapper */
+.hist-bar {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Avatar that sits on top of the bar */
+.bar-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+.bar-avatar:hover {
+  transform: scale(1.1);
+}
+
+/* The bar fill that grows from bottom to top */
+.bar-fill {
+  width: 100%;
+  height: 0%; /* Start at zero, JS sets final height */
+  background: #b93a36;
+  border-radius: 5px 5px 0 0;
+  transition: height 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+  transform-origin: bottom;
+}
+
+/* Label under the bar */
+.bar-label {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ============ RESPONSIVE ============ */
 @media (max-width: 768px) {
-  .finalists-avatars {
+  .finalists-title, .histogram-title {
+    font-size: 2.5rem;
+  }
+  .avatar-grid, .histogram {
     flex-direction: column;
     align-items: center;
   }
-  .finalist {
-    width: 250px;
-    margin-bottom: 20px;
+  .finalist, .hist-bar {
+    width: 200px;
   }
-  .finalist-name {
-    font-size: 1.1rem;
+  .avatar {
+    height: 160px;
   }
-  .vote-btn {
-    font-size: 0.9rem;
-  }
-}
-
-/* Keyframe for fading in */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+  .bar-avatar {
+    width: 70px;
+    height: 70px;
   }
 }
-
-
 
 
 

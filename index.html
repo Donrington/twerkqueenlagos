@@ -396,62 +396,125 @@
       </div>
     </section>
     
+<!-- Finalists Avatars Section -->
+<section class="finalists-section">
+  <div class="finalists-container">
+    <h2 class="finalists-title" data-aos="fade-up" data-aos-duration="900">
+      Meet the Finalists
+    </h2>
+    <p class="finalists-subtitle" data-aos="fade-up" data-aos-duration="1000">
+      Check out our talented finalists! Click “Vote” 
+      to see how you can support your favorite dancer.
+    </p>
 
-
-    <section class="finalists-section">
-      <div class="finalists-container">
-        <h2 class="finalists-title" data-aos="fade-up" data-aos-duration="900">Meet the Finalists</h2>
-        <p class="finalists-subtitle" data-aos="fade-up" data-aos-duration="1000">Vote for your favorite Twerk Queen Lagos finalist and help them win the crown!</p>
-    
-        <!-- Finalist Avatars Section -->
-        <div class="finalists-avatars" data-aos="fade-up" data-aos-duration="1100">
-          <div class="finalist" id="finalist1">
-            <img src="avatars/av1.webp" alt="Finalist 1" class="avatar">
-            <h3 class="finalist-name">Jessica Cruz</h3>
-            <div class="vote-container">
-              <button class="vote-btn" onclick="vote(1)">Vote</button>
-              <p id="vote-count1">0 Votes</p>
-            </div>
-          </div>
-    
-          <div class="finalist" id="finalist2">
-            <img src="avatars/av2.webp" alt="Finalist 2" class="avatar">
-            <h3 class="finalist-name">Nina Chank</h3>
-            <div class="vote-container">
-              <button class="vote-btn" onclick="vote(2)">Vote</button>
-              <p id="vote-count2">0 Votes</p>
-            </div>
-          </div>
-    
-          <div class="finalist" id="finalist3">
-            <img src="avatars/av3.webp" alt="Finalist 3" class="avatar">
-            <h3 class="finalist-name">Nina Jey</h3>
-            <div class="vote-container">
-              <button class="vote-btn" onclick="vote(3)">Vote</button>
-              <p id="vote-count3">0 Votes</p>
-            </div>
-          </div>
-    
-          <div class="finalist" id="finalist4">
-            <img src="avatars/av4.jpg" alt="Finalist 4" class="avatar">
-            <h3 class="finalist-name">Maria Lopes</h3>
-            <div class="vote-container">
-              <button class="vote-btn" onclick="vote(4)">Vote</button>
-              <p id="vote-count4">0 Votes</p>
-            </div>
-          </div>
-    
-          <div class="finalist" id="finalist5">
-            <img src="avatars/av5.jpg" alt="Finalist 5" class="avatar">
-            <h3 class="finalist-name">Alina Smith</h3>
-            <div class="vote-container">
-              <button class="vote-btn" onclick="vote(5)">Vote</button>
-              <p id="vote-count5">0 Votes</p>
-            </div>
-          </div>
-        </div>
+    <!-- Avatar Grid -->
+    <div class="avatar-grid" data-aos="fade-up" data-aos-duration="1100">
+      <!-- Finalist 1 -->
+      <div class="finalist">
+        <img src="avatars/av1.webp" alt="Finalist 1" class="avatar" />
+        <h3 class="finalist-name">Jessica Cruz</h3>
+        <p class="vote-count" id="voteCount1">No. 1 in your heart</p>
+        <!-- “Vote” button triggers instructions pop-up -->
+        <button class="vote-btn" onclick="showVoteInstructions('Jessica Cruz')">
+          Vote
+        </button>
       </div>
-    </section>
+
+      <!-- Finalist 2 -->
+      <div class="finalist">
+        <img src="avatars/av2.webp" alt="Finalist 2" class="avatar" />
+        <h3 class="finalist-name">Nina Chank</h3>
+        <p class="vote-count" id="voteCount2">No. 2 in your heart</p>
+        <button class="vote-btn" onclick="showVoteInstructions('Nina Chank')">
+          Vote
+        </button>
+      </div>
+
+      <!-- Finalist 3 -->
+      <div class="finalist">
+        <img src="avatars/av3.webp" alt="Finalist 3" class="avatar" />
+        <h3 class="finalist-name">Nina Jey</h3>
+        <p class="vote-count" id="voteCount3">No. 3 in your heart</p>
+        <button class="vote-btn" onclick="showVoteInstructions('Nina Jey')">
+          Vote
+        </button>
+      </div>
+
+      <!-- Finalist 4 -->
+      <div class="finalist">
+        <img src="avatars/av4.jpg" alt="Finalist 4" class="avatar" />
+        <h3 class="finalist-name">Maria Lopes</h3>
+        <p class="vote-count" id="voteCount4">No. 4 in your heart</p>
+        <button class="vote-btn" onclick="showVoteInstructions('Maria Lopes')">
+          Vote
+        </button>
+      </div>
+
+      <!-- Finalist 5 -->
+      <div class="finalist">
+        <img src="avatars/av5.jpg" alt="Finalist 5" class="avatar" />
+        <h3 class="finalist-name">Alina Smith</h3>
+        <p class="vote-count" id="voteCount5">No. 5 in your heart</p>
+        <button class="vote-btn" onclick="showVoteInstructions('Alina Smith')">
+          Vote
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Histogram Section -->
+<section class="histogram-section">
+  <div class="histogram-container">
+    <h2 class="histogram-title" data-aos="fade-up" data-aos-duration="900">
+      Current Standings
+    </h2>
+    <p class="histogram-subtitle" data-aos="fade-up" data-aos-duration="1000">
+      Here’s a quick snapshot of each finalist’s progress!
+    </p>
+
+    <div class="histogram" data-aos="fade-up" data-aos-duration="1100">
+      <!-- Bar #1 -->
+      <div class="hist-bar" data-percent="70">
+        <!-- Avatar on top of the bar -->
+        <img src="avatars/av1.webp" alt="Finalist 1" class="bar-avatar" />
+        <div class="bar-fill"></div>
+        <p class="bar-label">Jessica Cruz</p>
+      </div>
+
+      <!-- Bar #2 -->
+      <div class="hist-bar" data-percent="50">
+        <img src="avatars/av2.webp" alt="Finalist 2" class="bar-avatar" />
+        <div class="bar-fill"></div>
+        <p class="bar-label">Nina Chank</p>
+      </div>
+
+      <!-- Bar #3 -->
+      <div class="hist-bar" data-percent="65">
+        <img src="avatars/av3.webp" alt="Finalist 3" class="bar-avatar" />
+        <div class="bar-fill"></div>
+        <p class="bar-label">Nina Jey</p>
+      </div>
+
+      <!-- Bar #4 -->
+      <div class="hist-bar" data-percent="45">
+        <img src="avatars/av4.jpg" alt="Finalist 4" class="bar-avatar" />
+        <div class="bar-fill"></div>
+        <p class="bar-label">Maria Lopes</p>
+      </div>
+
+      <!-- Bar #5 -->
+      <div class="hist-bar" data-percent="80">
+        <img src="avatars/av5.jpg" alt="Finalist 5" class="bar-avatar" />
+        <div class="bar-fill"></div>
+        <p class="bar-label">Alina Smith</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
     
     
 
@@ -873,54 +936,25 @@ const timer = setInterval(() => {
 
 
 
-// Initialize vote counts
-let voteCounts = {
-  1: 0,
-  2: 0,
-  3: 0,
-  4: 0,
-  5: 0
-};
-
-// Check if the user has already voted (from localStorage)
-if (localStorage.getItem("hasVoted") === "true") {
-  // Disable voting buttons if user has already voted
-  document.querySelectorAll(".vote-btn").forEach((btn) => {
-    btn.disabled = true;
-  });
-}
-
-// Update vote count
-function vote(finalistNumber) {
-  // Check if the user has already voted
-  if (localStorage.getItem("hasVoted") === "true") {
-    alert("You've already voted! You can only vote once per session.");
-    return; // Prevent further voting
+ // Show instructions for text voting
+ function showVoteInstructions(name) {
+    alert(`To vote for ${name}, text: \n\nTWERK ${name.toUpperCase()} to 55599\n\nSupport your Twerk Queen today!`);
   }
 
-  // Increase vote count for the selected finalist
-  voteCounts[finalistNumber]++;
-  document.getElementById(`vote-count${finalistNumber}`).innerText = `${voteCounts[finalistNumber]} Votes`;
-
-  // Optionally, animate the button when clicked
-  const voteBtn = document.querySelector(`#finalist${finalistNumber} .vote-btn`);
-  voteBtn.classList.add("voted");
-
-  setTimeout(() => {
-    voteBtn.classList.remove("voted");
-  }, 300);
-
-  // Mark that the user has voted and store it in localStorage
-  localStorage.setItem("hasVoted", "true");
-
-  // Disable all voting buttons after voting
-  document.querySelectorAll(".vote-btn").forEach((btn) => {
-    btn.disabled = true;
+  // Animate bar fills once the page content is loaded
+  document.addEventListener("DOMContentLoaded", function() {
+    const bars = document.querySelectorAll(".hist-bar");
+    bars.forEach(bar => {
+      const fill = bar.querySelector(".bar-fill");
+      const percent = bar.getAttribute("data-percent");
+      fill.style.height = percent + "%";
+    });
   });
 
-  // Show an alert after voting
-  alert("Thank you for voting! Your vote has been submitted.");
-}
+
+
+
+
 
 
 
@@ -1044,6 +1078,9 @@ window.addEventListener("load", () => {
       behavior: "smooth"
     });
   });
+
+  
+
 
     </script>
 </body>

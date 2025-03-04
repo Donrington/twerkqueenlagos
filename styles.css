@@ -366,6 +366,8 @@ nav {
   letter-spacing: 3px;
   margin-bottom: 20px;
   opacity: 0;
+  color: #fa583f;
+  font-weight: bolder;
   animation: fadeInUp 1.5s ease-out forwards;
   animation-delay: 0.3s; 
 }

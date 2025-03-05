@@ -468,7 +468,7 @@ body {
   
   /* HEADINGS, TEXT, BUTTON remain the same as your snippet */
   .auditions-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 900;
     color: #b93a36;
     margin-bottom: 20px;
@@ -516,7 +516,7 @@ body {
       flex: 1 1 100%;
     }
     .auditions-title {
-      font-size: 2.2rem;
+      font-size: 2.6rem;
     }
   }
   

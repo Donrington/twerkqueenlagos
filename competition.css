@@ -14,8 +14,6 @@ body {
   }
   
 
-  
-
 /* NAVBAR (DESKTOP & GENERAL) */
 nav {
   display: flex;
@@ -32,12 +30,13 @@ nav {
 }
 
 /* LOGO */
-.logo a{
+.logo a {
   font-size: 26px;
   font-weight: bold;
   color: #000;
   letter-spacing: 3px;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
 /* HAMBURGER (mobile icon) - hidden on desktop by default */
@@ -47,7 +46,6 @@ nav {
   cursor: pointer;
   gap: 5px;
 }
-
 .bar {
   width: 30px;
   height: 3px;
@@ -71,20 +69,17 @@ nav {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   transition: transform 0.4s ease;
 }
-
 .nav-menu ul {
   display: flex;
   list-style: none;
   gap: 30px;
 }
-
 .nav-menu ul li {
-  position: relative; /* For line hover effect */
+  position: relative; /* for dropdown or line hover effect */
 }
-
 .nav-menu ul li a {
   text-decoration: none;
-  color: #000; /* black text for contrast on glass menu */
+  color: #000;
   font-size: 16px;
   letter-spacing: 1px;
   font-weight: 700;
@@ -92,7 +87,6 @@ nav {
   transition: color 0.3s ease;
   padding: 5px 0;
 }
-
 /* Hover line effect */
 .nav-menu ul li a::after {
   content: "";
@@ -111,7 +105,7 @@ nav {
   color: #333;
 }
 
-/* CALL-TO-ACTION BUTTON */
+/* CTA BUTTON */
 .cta-btn {
   background: #000;
   color: #fff;
@@ -157,60 +151,99 @@ nav {
   padding: 10px 40px;
 }
 
+/* DROPDOWN PARENT */
+.has-dropdown {
+  position: relative;
+}
+.has-dropdown .dropdown {
+  position: absolute;
+  top: calc(100% + 5px); /* slightly below the elliptical shape */
+  left: 0;
+  background: #fff; /* simple white sub-menu, matching reference image */
+  border-radius: 8px;
+  padding: 10px 0;
+  display: none; /* hidden by default */
+  min-width: 200px; /* ensure enough space for 4 items */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  z-index: 9999; /* on top of the ellipse */
+}
+.has-dropdown .dropdown li {
+  list-style: none;
+}
+.has-dropdown .dropdown li a {
+  display: block;
+  padding: 10px 20px;
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.has-dropdown .dropdown li a:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+/* Show sub-menu on hover (desktop) */
+nav ul li.has-dropdown:hover .dropdown {
+  display: block;
+}
+
 /* MEDIA QUERIES (Mobile) */
 @media screen and (max-width: 768px) {
-  /* Show hamburger on smaller screens */
   .hamburger {
     display: flex;
   }
-
-  /* NAV MENU on Mobile
-     Slides in from the LEFT (instead of right)
-     No rounded/elliptical shape 
-  */
   .nav-menu {
     position: fixed;
     top: 0;
-    left: -100%;       /* Start hidden off-screen to the left */
-    width: 80%;        /* You can adjust to 100% or any desired width */
-    height: 100vh;     /* Full vertical height */
-    background: rgba(0, 0, 0, 0.85); /* Dark overlay with some opacity */
-    backdrop-filter: none;          /* Remove extra blur if undesired */
-    border: none;                   /* No border or outline */
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: none;
+    border: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 30px;
-    transition: left 0.6s ease;     /* Sliding transition */
+    transition: left 0.6s ease;
     z-index: 1000;
-    /* Remove border-radius so it's a clean rectangle */
     border-radius: 0;
-    box-shadow: none;               /* Remove box shadow if you want a “flat” modal look */
+    box-shadow: none;
   }
-
-  /* Slide in from the left when .active is toggled */
   .nav-menu.active {
     left: 0;
   }
-
-  /* Layout for links in column form */
   .nav-menu ul {
     flex-direction: column;
     gap: 40px;
   }
-
-  /* White text in overlay (adjust if you want a different color) */
   .nav-menu ul li a {
     color: #fff;
     font-size: 20px;
     font-weight: 700;
   }
-
-  /* Optionally hide CTA button in mobile overlay 
-     or keep it if you want a button in the overlay. */
   .cta-btn {
     display: none;
+  }
+
+  /* Sub-menu in mobile overlay */
+  .nav-menu ul li.has-dropdown .dropdown {
+    position: static;
+    background: none;
+    box-shadow: none;
+    display: none;
+    padding: 0;
+    min-width: auto;
+  }
+  .nav-menu ul li.has-dropdown:hover .dropdown {
+    display: block; /* basic hover approach on mobile */
+  }
+  .dropdown li a {
+    color: #fff;
+    padding-left: 40px; 
+    font-size: 18px;
   }
 }
 
@@ -224,6 +257,8 @@ nav {
 .hamburger.open .bar:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
+
+
 
 
 /* Loader Container to center it on screen */
@@ -549,7 +584,7 @@ body {
     font-size: 1.1rem;
     color: #444;
     line-height: 1.6;
-    max-width: 600px;
+    max-width: 1200px;
   }
   
   .details-bullets {
@@ -609,6 +644,216 @@ body {
   }
 
 
+
+
+
+
+
+/* Gallery Section */
+.gallery-section {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #f7f7f7;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.2);
+}
+
+/* Custom Cursor */
+body {
+  cursor: url('https://www.iconfinder.com/data/icons/custom-cursor-set-1/32/cursor-02-512.png'), auto;
+}
+
+/* Full Screen Modal */
+.image-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .gallery-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .gallery-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+/* PAGE NAV SECTION */
+.page-nav-section {
+  background: #f4f4f4; /* or your preferred background */
+  padding: 20px 40px;
+  position: relative;
+
+
+}
+
+/* Container ensures horizontal alignment and spacing */
+.page-nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom:20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* left, center, right */
+}
+
+/* NAV LEFT: arrow + label */
+.nav-left,
+.nav-right {
+  flex: 0 0 auto;
+}
+
+.nav-prev,
+.nav-next {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000; /* default text color */
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect: color shift */
+.nav-prev:hover,
+.nav-next:hover {
+  color: #b93a36; /* accent color or your brand color */
+}
+
+/* Arrow spacing */
+.arrow-left {
+  margin-right: 5px;
+  font-size: 1.2rem;
+}
+.arrow-right {
+  margin-left: 5px;
+  font-size: 1.2rem;
+}
+
+/* NAV CENTER: grid icon in a button */
+.nav-center {
+  flex: 0 0 auto; /* no expansion, remains centered */
+}
+
+.grid-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+.grid-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Grid Icon squares */
+.grid-icon {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5px;
+}
+
+.square {
+  width: 10px;
+  height: 10px;
+  background: #aaa; /* Default color for squares */
+  transition: background 0.3s ease;
+}
+.grid-btn:hover .square {
+  background: #666; /* Darken on hover */
+}
+
+/* MOBILE RESPONSIVE */
+@media screen and (max-width: 768px) {
+
+  .nav-prev, .nav-next {
+    font-size: 0.9rem;
+  }
+  .arrow-left, .arrow-right {
+    font-size: 1rem;
+  }
+
+ 
+  .square {
+    width: 6px;
+    height: 6px;
+  
+  }
+
+  .nav-center{
+    margin: 0 5px;
+    
+  
+  }
+}
 
 
 
@@ -824,3 +1069,6 @@ a {
       right: 1rem;
     }
   }
+
+
+

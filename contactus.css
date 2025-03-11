@@ -370,7 +370,6 @@ nav ul li.has-dropdown:hover .dropdown {
     animation-delay: 4s;
     box-shadow: 0 0 120px 45px #fa583f;
   }
-
   .circle5 {
     top: 1600px;
     left: 70%;
@@ -379,7 +378,7 @@ nav ul li.has-dropdown:hover .dropdown {
     animation-delay: 4s;
     box-shadow: 0 0 120px 45px #fa583f;
   }
-
+  
   .circle6 {
     top: 1900px;
     left: 20%;
@@ -404,12 +403,27 @@ nav ul li.has-dropdown:hover .dropdown {
   
   /* RESPONSIVE ADJUSTMENTS */
   @media screen and (max-width: 992px) {
-    /* Scale or reposition circles to prevent horizontal overflow */
+    /* Example scaling/reposition for .circle5 & .circle6 */
+    .circle5 {
+      left: 60%;
+      top: 1600px; /* Adjust if you want it higher/lower */
+      width: 250px;
+      height: 250px;
+      box-shadow: 0 0 100px 35px #fa583f;
+    }
+    .circle6 {
+      left: 15%;
+      top: 1900px; /* Adjust if you want it higher/lower */
+      width: 200px;
+      height: 200px;
+      box-shadow: 0 0 80px 30px #fa583f;
+    }
+  
+    /* Keep or modify your existing circle1, circle2, circle3, circle4 rules */
     .parallax-circle {
-      opacity: 0.15; /* optionally reduce visibility a bit */
+      opacity: 0.15;
     }
     .circle1, .circle4 {
-      /* Move them closer so they don't poke out horizontally */
       left: 10%;
       width: 200px;
       height: 200px;
@@ -417,7 +431,7 @@ nav ul li.has-dropdown:hover .dropdown {
     }
     .circle2 {
       left: 40%;
-      top: 650px; /* minor adjustment */
+      top: 650px;
       width: 150px;
       height: 150px;
       box-shadow: 0 0 60px 20px #fa583f;
@@ -432,9 +446,24 @@ nav ul li.has-dropdown:hover .dropdown {
   }
   
   @media screen and (max-width: 600px) {
-    /* Hide or further shrink the circles if needed */
+    /* Further scaling/reposition for .circle5 & .circle6 */
+    .circle5 {
+      left: 50%;
+      top: 1600px;
+      width: 180px;
+      height: 180px;
+      box-shadow: 0 0 60px 20px #fa583f;
+    }
+    .circle6 {
+      left: 10%;
+      top: 1900px;
+      width: 150px;
+      height: 150px;
+      box-shadow: 0 0 50px 15px #fa583f;
+    }
+  
     .parallax-circle {
-      opacity: 0.12; /* or 0.1 for even more subtle effect */
+      opacity: 0.12;
     }
     .circle1, .circle4 {
       width: 150px;

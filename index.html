@@ -16,30 +16,42 @@
 </head>
 <body>
     <!-- Navbar -->
-   <!-- NAVBAR -->
+
    <nav id="mainNav">
-    <div class="logo">TQL</div>
-    
+    <div class="logo"><a href="index.html">TQL</a></div>
+  
     <!-- Hamburger Icon for Mobile -->
     <div class="hamburger" id="hamburger">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </div>
-
+  
     <!-- Navigation Links in a Rounded Container (Glassmorphic) -->
     <div class="nav-menu" id="navMenu">
       <ul>
         <li><a href="aboutus.html">About Us</a></li>
-        <li><a href="weeklyaud.html">Competition</a></li>
+  
+        <!-- Competition with a DROPDOWN -->
+        <li class="has-dropdown">
+          <a href="#competition">Competition</a>
+          <ul class="dropdown">
+            <li><a href="weeklyaud.html">Weekly Audition</a></li>
+            <li><a href="eliminate_rd.html">Elimination Rounds</a></li>
+            <li><a href="wildcard.html">Wildcard Battles</a></li>
+            <li><a href="final.html">Final Showdown</a></li>
+          </ul>
+        </li>
+  
         <li><a href="#register">Register</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="contactus.html">Contact</a></li>
       </ul>
     </div>
-
+  
     <!-- Call-to-Action Button -->
     <button class="cta-btn" id="ctaBtn">Let’s Twerk</button>
   </nav>
+
 
 
 
@@ -298,7 +310,7 @@
           <!-- CTA Buttons -->
           <div class="empower-cta">
             <a href="#" class="btn primary-btn">Join</a>
-            <a href="#" class="btn outline-btn">Learn More &rarr;</a>
+            <a href="aboutus.html" class="btn outline-btn">Learn More &rarr;</a>
           </div>
         </div>
     
@@ -390,7 +402,7 @@
     
         <!-- CTA Buttons -->
         <div class="competition-cta">
-          <a href="#" class="btn learn-more">Learn More</a>
+          <a href="aboutus.html" class="btn learn-more">Learn More</a>
           <a href="#" class="btn sign-up">Sign Up &rarr;</a>
         </div>
       </div>
@@ -462,9 +474,7 @@
     </div>
   </div>
 </section>
-
-<!-- Histogram Section -->
-<section class="histogram-section">
+<section class="histogram-section" id="standings">
   <div class="histogram-container">
     <h2 class="histogram-title" data-aos="fade-up" data-aos-duration="900">
       Current Standings
@@ -473,52 +483,52 @@
       Here’s a quick snapshot of each finalist’s progress!
     </p>
 
-    <div class="histogram" data-aos="fade-up" data-aos-duration="1100">
-      <!-- Bar #1 -->
-      <div class="hist-bar" data-percent="70">
-        <!-- Avatar on top of the bar -->
-        <img src="avatars/av1.webp" alt="Finalist 1" class="bar-avatar" />
-        <div class="bar-fill"></div>
-        <p class="bar-label">Jessica Cruz</p>
-      </div>
+    <div id="chart">
+      <!-- Remove the unnecessary numbers section -->
+      <ul class="bars">
+        <!-- Bar #1 -->
+        <li>
+          <div data-height="70" class="bar">
+            <div class="per">70</div>
+          </div>
+          <span>Jessica Cruz</span>
+        </li>
 
-      <!-- Bar #2 -->
-      <div class="hist-bar" data-percent="50">
-        <img src="avatars/av2.webp" alt="Finalist 2" class="bar-avatar" />
-        <div class="bar-fill"></div>
-        <p class="bar-label">Nina Chank</p>
-      </div>
+        <!-- Bar #2 -->
+        <li>
+          <div data-height="50" class="bar">
+            <div class="per">50</div>
+          </div>
+          <span>Nina Chank</span>
+        </li>
 
-      <!-- Bar #3 -->
-      <div class="hist-bar" data-percent="65">
-        <img src="avatars/av3.webp" alt="Finalist 3" class="bar-avatar" />
-        <div class="bar-fill"></div>
-        <p class="bar-label">Nina Jey</p>
-      </div>
+        <!-- Bar #3 -->
+        <li>
+          <div data-height="65" class="bar">
+            <div class="per">65</div>
+          </div>
+          <span>Nina Jey</span>
+        </li>
 
-      <!-- Bar #4 -->
-      <div class="hist-bar" data-percent="45">
-        <img src="avatars/av4.jpg" alt="Finalist 4" class="bar-avatar" />
-        <div class="bar-fill"></div>
-        <p class="bar-label">Maria Lopes</p>
-      </div>
+        <!-- Bar #4 -->
+        <li>
+          <div data-height="45" class="bar">
+            <div class="per">45</div>
+          </div>
+          <span>Maria Lopes</span>
+        </li>
 
-      <!-- Bar #5 -->
-      <div class="hist-bar" data-percent="80">
-        <img src="avatars/av5.jpg" alt="Finalist 5" class="bar-avatar" />
-        <div class="bar-fill"></div>
-        <p class="bar-label">Alina Smith</p>
-      </div>
+        <!-- Bar #5 -->
+        <li>
+          <div data-height="80" class="bar">
+            <div class="per">80</div>
+          </div>
+          <span>Alina Smith</span>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
-
-
-
-    
-    
-
-
 
     
     <section class="showcase-section">
@@ -555,7 +565,7 @@
           <div class="card-content">
             <h3>Compete for exciting cash prizes and prestigious awards!</h3>
             <p>Experience thrilling performances from the best dancers in the industry.</p>
-            <a href="#" class="card-link">Learn More &rarr;</a>
+            <a href="aboutus.html" class="card-link">Learn More &rarr;</a>
           </div>
         </div>
     
@@ -951,20 +961,64 @@ const timer = setInterval(() => {
     alert(`To vote for ${name}, text: \n\nTWERK ${name.toUpperCase()} to 55599\n\nSupport your Twerk Queen today!`);
   }
 
-  // Animate bar fills once the page content is loaded
-  document.addEventListener("DOMContentLoaded", function() {
-    const bars = document.querySelectorAll(".hist-bar");
-    bars.forEach(bar => {
-      const fill = bar.querySelector(".bar-fill");
-      const percent = bar.getAttribute("data-percent");
-      fill.style.height = percent + "%";
+
+  document.addEventListener("DOMContentLoaded", function () {
+  // Data for each bar
+  const data = {
+    "Jessica Cruz": 70,
+    "Nina Chank": 50,
+    "Nina Jey": 65,
+    "Maria Lopes": 45,
+    "Alina Smith": 80
+  };
+
+  // Determine the max value
+  let maxValue = 0;
+  for (const value of Object.values(data)) {
+    if (value > maxValue) {
+      maxValue = value;
+    }
+  }
+
+  maxValue = Math.ceil((maxValue / 10) * 1.1) * 10;
+
+  // Generate bars based on data
+  const barsContainer = document.querySelector(".bars");
+  barsContainer.innerHTML = '';
+
+  for (const [name, value] of Object.entries(data)) {
+    const percent = (value / maxValue) * 100;
+    const barHTML = `
+      <li>
+        <div data-height="${percent}" class="bar">
+          <div class="per">${value}</div>
+        </div>
+        <span>${name}</span>
+      </li>
+    `;
+    barsContainer.innerHTML += barHTML;
+  }
+
+  // Intersection Observer for animation when in view
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animate the bars after the section comes into view
+        const bars = entry.target.querySelectorAll(".bars li .bar");
+        bars.forEach(function(bar) {
+          const height = bar.getAttribute("data-height");
+          bar.style.height = `${height}%`; // Apply the height animation
+        });
+        entry.target.classList.add('animate'); // Add class to trigger animation
+        observer.unobserve(entry.target); // Stop observing after animation
+      }
     });
-  });
+  }, { threshold: 0.5 }); // Trigger animation when 50% of the section is visible
 
-
-
-
-
+  // Observe the histogram section
+  const histogramSection = document.querySelector("#standings");
+  observer.observe(histogramSection);
+});
 
 
 

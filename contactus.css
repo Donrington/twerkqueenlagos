@@ -326,20 +326,6 @@ nav ul li.has-dropdown:hover .dropdown {
 
 
 
-
-
-
-
-
-/* Ensure the body or main container doesn't allow horizontal scroll */
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Hide potential x overflow from circles */
-    font-family: 'Montserrat', sans-serif;
-    /* background, etc. as needed */
-  }
-  
   /* GENERAL CIRCLE STYLES */
   .parallax-circle {
     position: absolute;
@@ -381,6 +367,24 @@ body {
     left: 80%;
     width: 300px;
     height: 300px;
+    animation-delay: 4s;
+    box-shadow: 0 0 120px 45px #fa583f;
+  }
+
+  .circle5 {
+    top: 1600px;
+    left: 70%;
+    width: 350px;
+    height: 350px;
+    animation-delay: 4s;
+    box-shadow: 0 0 120px 45px #fa583f;
+  }
+
+  .circle6 {
+    top: 1900px;
+    left: 20%;
+    width: 260px;
+    height: 260px;
     animation-delay: 4s;
     box-shadow: 0 0 120px 45px #fa583f;
   }
@@ -455,415 +459,456 @@ body {
   }
   
   
-  
-  /* ========== SECTION 1: AUDITIONS ========== */
-  .auditions-section {
-    position: relative;
-    z-index: 5;
-    padding: 100px 20px;
-    background-color: #fff;
-    min-height: 600px;
+
+/******** CONTACT US SECTION ********/
+.contact-us-section {
+    background-color: #fff; /* White background as requested */
+    padding: 80px 20px; 
+    text-align: center;
   }
   
-  /* Container: Force row alignment on large screens,
-     while still stacking on smaller screens if needed.
-  */
-  .auditions-container {
+  .contact-us-container {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: row; /* text on left, image on right */
-    gap: 50px;
-    align-items: center;
-    /* We'll remove the wrap so on large screens it stays side by side. */
-    flex-wrap: nowrap; 
+    position: relative;
+    margin-top: 50px;
   }
   
-  /* TEXT (LEFT) */
-  .auditions-content {
-    flex: 1 1 50%;
+  /* Title in Poiret One */
+  .contact-us-title {
+    font-size: 4rem;
+    font-family: 'Poiret One', cursive;
+    color: #000;
+    margin-bottom: 16px;
+    letter-spacing: 3px;
   }
   
-  /* IMAGE (RIGHT) */
-  .auditions-image {
-    flex: 1 1 50%;
-    overflow: hidden;
+  /* Subtitle for some context */
+  .contact-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 60px;
+    line-height: 1.6;
+  }
+  
+  /* Contact Cards Layout */
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px; 
+    justify-items: center; 
+    margin-top: 60px; 
+  }
+  
+  /* Each card styling */
+  .contact-card {
+    background: #fff;
+    padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 320px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: 
+      transform 0.3s ease, 
+      box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden; /* For hover effects */
   }
-  .auditions-image img {
+  
+  .contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Decorative hover overlay if you want advanced effect */
+  .contact-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(250,88,63,0.15), rgba(0,0,0,0));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+  .contact-card:hover::before {
+    opacity: 1;
+  }
+  
+  .card-icon {
+    font-size: 45px;
+    color: #fa583f; /* TwerkQueen Lagos theme color */
+    margin-bottom: 20px;
+    z-index: 2; /* Above the overlay */
+  }
+  
+  .contact-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    z-index: 2;
+  }
+  
+  .contact-card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    z-index: 2;
+  }
+  
+  .contact-card a {
+    font-weight: 600;
+    color: #fa583f;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    z-index: 2;
+  }
+  
+  .contact-card a:hover {
+    color: #b93a36; /* Hover effect for link */
+  }
+  
+/******** CONTACT HERO SECTION ********/
+.contact-hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 600px; /* Enough space for form & info side by side */
+    overflow: hidden;   /* So any overlap is clipped */
+  }
+  
+  /* Background: linear-gradient + background image */
+  .contact-hero-background {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)
+      ),
+      url('twerkqueen/twerkqueen5.jpeg') no-repeat center center / cover;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-  .auditions-image:hover img {
-    transform: scale(1.05);
+    padding: 80px 20px; /* Spacing around content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
-  /* HEADINGS, TEXT, BUTTON remain the same as your snippet */
-  .auditions-title {
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: #b93a36;
+  .contact-hero-container {
+    display: flex;
+    gap: 60px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  /* Left side: Contact Form */
+  .contact-hero-form {
+    flex: 1 1 45%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  }
+  
+  /* Form Title above inputs */
+  .form-title {
+    font-size: 1.8rem;
+    font-weight: 700;
     margin-bottom: 20px;
+    color: #333;
   }
   
-  .auditions-text {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #444;
-    margin-bottom: 15px;
-    max-width: 500px;
+  /* Form inputs */
+  .contact-hero-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
   
-  .auditions-cta-text {
+  .contact-hero-form label {
     font-size: 1rem;
-    line-height: 1.6;
-    color: #666;
-    margin-bottom: 30px;
-    max-width: 500px;
+    color: #444;
+    margin-bottom: 5px;
+  }
+  .contact-hero-form input,
+  .contact-hero-form textarea {
+    font-size: 1rem;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: none;
+  }
+  .contact-hero-form input:focus,
+  .contact-hero-form textarea:focus {
+    outline: none;
+    border-color: #fa583f; /* TwerkQueen accent color */
   }
   
-  .auditions-btn {
-    display: inline-block;
-    background-color: #b93a36;
+  /* Submit Button */
+  .submit-btn {
+    background: #fa583f;
     color: #fff;
     padding: 14px 28px;
+    border: none;
     border-radius: 30px;
-    text-decoration: none;
+    font-size: 1rem;
     font-weight: 600;
+    cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
+    align-self: flex-start; /* Button aligned to the left in the form */
   }
-  .auditions-btn:hover {
-    background-color: #fff;
-    color: #b93a36;
-    transform: translateY(-2px);
+  .submit-btn:hover {
+    background: #b93a36;
+    transform: scale(1.04);
   }
   
-  /* Responsive: stack on smaller screens */
+  /* Right side: Contact Info */
+  .contact-hero-info {
+    flex: 1 1 45%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* The badge “Get in Touch” */
+  .badge-get-intouch {
+    display: inline-block;
+    background: #ffe6e0;
+    color: #fa583f;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    width:9rem;
+  }
+  
+  /* Big Title on the right */
+  .contact-hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  
+  /* Paragraph text on the right */
+  .contact-hero-text {
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 500px; /* so lines aren't too long */
+  }
+  
+  /* Additional contact details (list) */
+  .contact-hero-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  .contact-hero-details li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .contact-hero-details li i {
+    color: #fa583f;
+    margin-right: 10px;
+  }
+  
+  /******** MEDIA QUERIES ********/
   @media (max-width: 992px) {
-    .auditions-container {
-      flex-direction: column; /* stack: text on top, image below or vice versa */
-      flex-wrap: wrap; /* allow wrapping now */
+    .contact-hero-container {
+      flex-direction: column;
+      gap: 40px;
     }
-    .auditions-content, .auditions-image {
-      flex: 1 1 100%;
+    .contact-hero-form, .contact-hero-info {
+      flex: none;
+      width: 100%;
+      max-width: 600px; /* optional */
     }
-    .auditions-title {
-      font-size: 2.6rem;
+    .contact-hero-title {
+      font-size: 2.2rem;
+    }
+  }
+  @media (max-width: 576px) {
+    .form-title {
+      font-size: 1.5rem;
+    }
+    .contact-hero-title {
+      font-size: 1.8rem;
+    }
+    .contact-hero-text {
+      font-size: 0.95rem;
     }
   }
   
   
-  /* ========== SECTION 2: DETAILS ========== */
-  .details-section {
-    position: relative;
-    z-index: 5;
-    padding: 100px 20px;
-    min-height: 600px;
-    background: #fff; /* or keep consistent with body background */
+  /******** MEDIA QUERIES ********/
+  @media screen and (max-width: 768px) {
+    .contact-us-title {
+      font-size: 2.5rem;
+    }
+    .contact-subtitle {
+      font-size: 1rem;
+    }
+    .contact-cards {
+      grid-template-columns: 1fr; /* Single column on small screens */
+    }
+    .contact-card {
+      margin-bottom: 20px;
+    }
+    .next-section h2 {
+      font-size: 2.2rem;
+    }
   }
   
-  .details-container {
+
+
+
+
+
+/* FAQ SECTION */
+.faq-section {
+    padding: 60px 20px;
+    background: #fdfdfd;
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .faq-container {
     max-width: 1200px;
     margin: 0 auto;
   }
   
-  .details-heading {
+  /* Header */
+  .faq-header {
+    text-align: center;
     margin-bottom: 40px;
   }
   
-  .details-title {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: #b93a36; 
-    margin-bottom: 15px;
-  }
-  .details-subtitle {
-    font-size: 1.1rem;
-    color: #444;
-    line-height: 1.6;
-    max-width: 1200px;
-  }
-  
-  .details-bullets {
-    margin-top: 30px;
-  }
-  
-  .why-best-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #222;
-  }
-  
-  .why-best-list {
-    list-style: none;
-    padding: 0;
-  }
-  .why-best-list li {
-    position: relative;
+  .faq-badge {
+    font-size: 0.85rem;
+    background-color: #fa583f; /* TwerkQueen accent color */
+    color: #fff;
+    padding: 6px 15px;
+    border-radius: 999px;
     margin-bottom: 10px;
-    padding-left: 25px;
-    color: #555;
+    display: inline-block;
+    text-transform: uppercase;
   }
-  .why-best-list li::before {
-    content: "•";
-    color: #b93a36;
-    position: absolute;
-    left: 0;
-    font-size: 1.2rem;
-    line-height: 1;
-    top: 3px; /* vertical alignment tweak */
+  
+  .faq-title {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  /* Two-column grid */
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+  }
+  
+  /* Each column holds 4 items */
+  .faq-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  /* FAQ ITEM */
+  .faq-item {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .faq-item:hover {
+    background-color: #fff5f0; /* Subtle highlight on hover */
+  }
+  
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+  }
+  
+  .faq-icon {
+    font-size: 1.5rem;
+    color: #fa583f;
+    transition: transform 0.3s ease;
+  }
+  
+  .faq-question:hover .faq-icon {
+    transform: rotate(45deg);
+  }
+  
+  .question-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fa583f;
+    margin: 0;
+  }
+  
+  /* The hidden answer text */
+  .faq-answer {
+    display: none;
+    margin-top: 10px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+  }
+  
+  /* Toggle class "active" to show the answer + animation */
+  .faq-item.active .faq-answer {
+    display: block;
+    animation: slideDown 0.3s ease;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   /* RESPONSIVE */
-  @media (max-width: 992px) {
-    .auditions-container {
-      flex-direction: column;
+  @media screen and (max-width: 992px) {
+    .faq-title {
+      font-size: 2.4rem;
     }
-    .auditions-image, .auditions-content {
-      flex: 1 1 100%;
-    }
-    .details-title {
-      font-size: 2rem;
+    .faq-grid {
+      grid-template-columns: 1fr; /* Single column on smaller screens */
     }
   }
   
-  @media (max-width: 600px) {
-    .auditions-title {
+  @media screen and (max-width: 576px) {
+    .faq-title {
       font-size: 2rem;
     }
-    .details-subtitle {
+    .question-text {
       font-size: 1rem;
     }
-    .why-best-title {
-      font-size: 1.3rem;
-    }
   }
-
-
-
-
-
-
-
-/* Gallery Section */
-.gallery-section {
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: #f7f7f7;
-}
-
-.gallery-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 10px;
-  max-width: 1200px;
-  width: 100%;
-  padding: 20px;
-}
-
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-}
-
-.gallery-item:hover {
-  transform: scale(1.05);
-}
-
-.gallery-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out;
-}
-
-.gallery-item:hover .gallery-image {
-  transform: scale(1.2);
-}
-
-/* Custom Cursor */
-body {
-  cursor: url('https://www.iconfinder.com/data/icons/custom-cursor-set-1/32/cursor-02-512.png'), auto;
-}
-
-/* Full Screen Modal */
-.image-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-image {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-}
-
-.close-modal {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 3rem;
-  color: white;
-  cursor: pointer;
-  z-index: 10;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  .gallery-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .gallery-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-
-/* PAGE NAV SECTION */
-.page-nav-section {
-  background: #f4f4f4; /* or your preferred background */
-  padding: 20px 40px;
-  position: relative;
-
-
-}
-
-/* Container ensures horizontal alignment and spacing */
-.page-nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom:20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* left, center, right */
-}
-
-/* NAV LEFT: arrow + label */
-.nav-left,
-.nav-right {
-  flex: 0 0 auto;
-}
-
-.nav-prev,
-.nav-next {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  color: #000; /* default text color */
-  font-weight: 600;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-/* Hover effect: color shift */
-.nav-prev:hover,
-.nav-next:hover {
-  color: #b93a36; /* accent color or your brand color */
-}
-
-/* Arrow spacing */
-.arrow-left {
-  margin-right: 5px;
-  font-size: 1.2rem;
-}
-.arrow-right {
-  margin-left: 5px;
-  font-size: 1.2rem;
-}
-
-/* NAV CENTER: grid icon in a button */
-.nav-center {
-  flex: 0 0 auto; /* no expansion, remains centered */
-}
-
-.grid-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  outline: none;
-  display: inline-flex;
-  align-items: center;
-  transition: transform 0.3s ease;
-}
-.grid-btn:hover {
-  transform: scale(1.1);
-}
-
-/* Grid Icon squares */
-.grid-icon {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 5px;
-}
-
-.square {
-  width: 10px;
-  height: 10px;
-  background: #aaa; /* Default color for squares */
-  transition: background 0.3s ease;
-}
-.grid-btn:hover .square {
-  background: #666; /* Darken on hover */
-}
-
-/* MOBILE RESPONSIVE */
-@media screen and (max-width: 768px) {
-
-  .nav-prev, .nav-next {
-    font-size: 0.9rem;
-  }
-  .arrow-left, .arrow-right {
-    font-size: 1rem;
-  }
-
- 
-  .square {
-    width: 6px;
-    height: 6px;
-  
-  }
-
-  .nav-center{
-    margin: 0 5px;
-    
-  
-  }
-}
-
-
-
-
-
-
-
-
   
 
+  
 /* FOOTER SECTION */
 .footer-section {
     background-color: #000;
@@ -1028,11 +1073,10 @@ body {
   }
   
   
-
-/* From Uiverse.io by ArturCodeCraft */
-
-/* RESET STYLES */
-a {
+  /* From Uiverse.io by ArturCodeCraft */
+  
+  /* RESET STYLES */
+  a {
     text-decoration: none;
   }
   
@@ -1069,6 +1113,3 @@ a {
       right: 1rem;
     }
   }
-
-
-

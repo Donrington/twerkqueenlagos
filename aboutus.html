@@ -19,29 +19,40 @@
    <!-- NAVBAR -->
    <nav id="mainNav">
     <div class="logo"><a href="index.html">TQL</a></div>
-    
+  
     <!-- Hamburger Icon for Mobile -->
     <div class="hamburger" id="hamburger">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </div>
-
+  
     <!-- Navigation Links in a Rounded Container (Glassmorphic) -->
     <div class="nav-menu" id="navMenu">
       <ul>
-        <li><a href="#aboutus">About Us</a></li>
-        <li><a href="weeklyaud.html">Competition</a></li>
-        <li><a href="#register">Register</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+  
+        <!-- Competition with a DROPDOWN -->
+        <li class="has-dropdown">
+          <a href="#competition">Competition</a>
+          <ul class="dropdown">
+            <li><a href="weeklyaud.html">Weekly Audition</a></li>
+            <li><a href="eliminate_rd.html">Elimination Rounds</a></li>
+            <li><a href="wildcard.html">Wildcard Battles</a></li>
+            <li><a href="final.html">Final Showdown</a></li>
+          </ul>
+        </li>
+        
+        <li><a href="Blog.html">Blog</a></li>
+
         <li><a href="contactus.html">Contact</a></li>
       </ul>
     </div>
-
+  
     <!-- Call-to-Action Button -->
-    <button class="cta-btn" id="ctaBtn">Let’s Twerk</button>
+    <a href="register.html" class="cta-btn" id="ctaBtn">Register</a>
   </nav>
-
-
 
 
 
@@ -270,17 +281,17 @@
         <div class="numbers-grid">
           <!-- Stat 1 -->
           <div class="number-card">
-            <h3 class="number" data-target="5000">0</h3>
+            <h3 class="number" data-target="100">0</h3>
             <p class="number-label">Registered Twerkers</p>
           </div>
           <!-- Stat 2 -->
           <div class="number-card">
-            <h3 class="number" data-target="200">0</h3>
+            <h3 class="number" data-target="50">0</h3>
             <p class="number-label">Monthly Showdowns</p>
           </div>
           <!-- Stat 3 -->
           <div class="number-card">
-            <h3 class="number" data-target="50">0</h3>
+            <h3 class="number" data-target="5">0</h3>
             <p class="number-label">Cities Reached</p>
           </div>
           <!-- Stat 4 -->

@@ -405,14 +405,14 @@ nav ul li.has-dropdown:hover .dropdown {
   @media screen and (max-width: 992px) {
     /* Example scaling/reposition for .circle5 & .circle6 */
     .circle5 {
-      left: 60%;
+      left: 30%;
       top: 1600px; /* Adjust if you want it higher/lower */
       width: 250px;
       height: 250px;
       box-shadow: 0 0 100px 35px #fa583f;
     }
     .circle6 {
-      left: 15%;
+      left: 30%;
       top: 1900px; /* Adjust if you want it higher/lower */
       width: 200px;
       height: 200px;
@@ -448,14 +448,14 @@ nav ul li.has-dropdown:hover .dropdown {
   @media screen and (max-width: 600px) {
     /* Further scaling/reposition for .circle5 & .circle6 */
     .circle5 {
-      left: 50%;
+      left: 30%;
       top: 1600px;
       width: 180px;
       height: 180px;
       box-shadow: 0 0 60px 20px #fa583f;
     }
     .circle6 {
-      left: 10%;
+      left: 30%;
       top: 1900px;
       width: 150px;
       height: 150px;

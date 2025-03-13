@@ -27,19 +27,185 @@ nav {
   top: 0;
   z-index: 999;
 
-  backdrop-filter: blur(6px); /* Slight glass effect for entire nav bar */
+
   transition: background 0.3s ease, padding 0.3s ease;
 }
 
 /* LOGO */
-.logo a {
-  font-size: 26px;
-  font-weight: bold;
-  color: #fff;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  text-decoration: none;
+/*********************************************
+  BASE LOGO STYLES
+*********************************************/
+.logo {
+  width: 6.5rem;
+  height: auto;
 }
+
+/* Larger hero logo size if desired */
+.hero_logo {
+  width: 10rem;
+  height: auto;
+}
+
+/*********************************************
+  GLITCH CONTAINER & LAYERS
+*********************************************/
+.herologo.glitch {
+  position: relative;
+  display: inline-block;
+  overflow: hidden; /* Required for the clip-path glitch slices */
+}
+
+.herologo.glitch .hero_logo {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+/* The container that holds the glitch layers */
+.glitch__layers {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Don’t block hover events on the main image */
+}
+
+/* Each glitch layer references the same logo image */
+.glitch__layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('logo/TQL LOGO 2-01.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Show layers on hover for a more intense glitch effect */
+.herologo.glitch .glitch__layer {
+  opacity: 1;
+}
+
+/*********************************************
+  ANIMATION & KEYFRAMES
+*********************************************/
+/* Layer 1 */
+.glitch__layer:nth-child(1) {
+  mix-blend-mode: screen;
+  transform: translate(0);
+  animation: glitch-anim-1 2s infinite linear alternate;
+}
+
+/* Layer 2 */
+.glitch__layer:nth-child(2) {
+  mix-blend-mode: overlay;
+  transform: translate(0);
+  animation: glitch-anim-2 2.3s infinite linear alternate;
+}
+
+/* Layer 3 */
+.glitch__layer:nth-child(3) {
+  mix-blend-mode: lighten;
+  transform: translate(0);
+  animation: glitch-anim-flash 1s infinite linear;
+}
+
+/*********************************************
+  KEYFRAMES
+*********************************************/
+@keyframes glitch-anim-1 {
+  0% {
+    clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+    transform: translate(-2px, -2px);
+  }
+  20% {
+    clip-path: polygon(0 10%, 100% 10%, 100% 13%, 0 13%);
+    transform: translate(2px, -2px);
+  }
+  40% {
+    clip-path: polygon(0 20%, 100% 20%, 100% 23%, 0 23%);
+    transform: translate(-2px, 2px);
+  }
+  60% {
+    clip-path: polygon(0 30%, 100% 30%, 100% 33%, 0 33%);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    clip-path: polygon(0 40%, 100% 40%, 100% 43%, 0 43%);
+    transform: translate(-2px, -2px);
+  }
+  100% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 53%, 0 53%);
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip-path: polygon(0 52%, 100% 52%, 100% 55%, 0 55%);
+    transform: translate(2px, 2px);
+  }
+  20% {
+    clip-path: polygon(0 62%, 100% 62%, 100% 65%, 0 65%);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    clip-path: polygon(0 72%, 100% 72%, 100% 75%, 0 75%);
+    transform: translate(2px, -2px);
+  }
+  60% {
+    clip-path: polygon(0 82%, 100% 82%, 100% 85%, 0 85%);
+    transform: translate(-2px, -2px);
+  }
+  80% {
+    clip-path: polygon(0 92%, 100% 92%, 100% 95%, 0 95%);
+    transform: translate(2px, 2px);
+  }
+  100% {
+    clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes glitch-anim-flash {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+
+.footer_logo {
+  width: 10rem;
+  height: auto;
+
+}
+  .footerlogo{
+
+    justify-content: center;
+    align-items:center;
+  }
+
+.herologo{
+
+  justify-content: center;
+  align-items:center;
+}
+
+
+
+
 
 /* HAMBURGER (mobile icon) - hidden on desktop by default */
 .hamburger {
@@ -51,7 +217,7 @@ nav {
 .bar {
   width: 30px;
   height: 3px;
-  background: #000;
+  background: #fff;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
@@ -247,6 +413,16 @@ nav ul li.has-dropdown:hover .dropdown {
     padding-left: 40px; 
     font-size: 18px;
   }
+
+  .hero_logo{
+    width:7rem;
+  }
+
+  
+.footer_logo {
+  width: 7rem;
+
+}
 }
 
 /* HAMBURGER OPEN STATE */
@@ -1050,7 +1226,7 @@ nav ul li.has-dropdown:hover .dropdown {
   display: flex;
   position: relative;
 }
-.state--default span:nth-child(4) {
+.state--default span:nth-child(8) {
   margin-right: 5px;
 }
 .state--sent {

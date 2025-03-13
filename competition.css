@@ -30,14 +30,20 @@ nav {
 }
 
 /* LOGO */
-.logo a {
-  font-size: 26px;
-  font-weight: bold;
-  color: #000;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  text-decoration: none;
+.logo {
+  width: 6.5rem;
+  height: auto;
 }
+.footer_logo {
+  width: 10rem;
+  height: auto;
+
+}
+  .footerlogo{
+
+    justify-content: center;
+    align-items:center;
+  }
 
 /* HAMBURGER (mobile icon) - hidden on desktop by default */
 .hamburger {
@@ -244,6 +250,11 @@ nav ul li.has-dropdown:hover .dropdown {
     color: #fff !important;
     padding-left: 40px; 
     font-size: 18px;
+  }
+
+  .footer_logo {
+    width: 7rem;
+  
   }
 }
 

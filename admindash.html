@@ -10,17 +10,22 @@
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
 
   <!-- Animate on Scroll (AOS) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+    rel="stylesheet"
+  />
 
   <link rel="stylesheet" href="admindash.css" />
 </head>
 <body>
 
-  <!-- Loader Overlay (from your code example) -->
+  <!-- Loader Overlay -->
   <div class="loader-overlay">
     <div class="frame">
       <div class="center">
@@ -32,9 +37,15 @@
   </div>
 
   <!-- Sidebar Navigation -->
-  <aside class="dashboard-sidebar" data-aos="fade-right" data-aos-duration="800">
+  <aside class="dashboard-sidebar">
     <div class="sidebar-header">
-      <img src="images/tql_logo.svg" alt="TQL Logo" class="sidebar-logo" />
+      <img
+        src="logo/logo_invert.png"
+        alt="TQL Logo"
+        class="sidebar-logo"
+        data-light="logo/logo_invert.png"
+        data-dark="logo/TQL LOGO 2-01.png"
+      />
       <h1 class="sidebar-title">Twerk Admin</h1>
     </div>
     <ul class="sidebar-menu">
@@ -51,13 +62,11 @@
   </aside>
 
   <!-- Main Content Area -->
- 
-  <!-- Main Content -->
   <div class="dashboard-main">
     <!-- Header -->
     <header class="dashboard-header" data-aos="fade-down" data-aos-duration="800">
       <div class="header-left">
-        <!-- Mobile Menu Toggle -->
+        <!-- Mobile & Desktop Menu Toggle -->
         <div class="menu-toggle" id="menuToggle">
           <i class="fas fa-bars"></i>
         </div>
@@ -69,7 +78,7 @@
       </div>
 
       <div class="header-right">
-        <!-- Dark Mode Toggle (Optional) -->
+        <!-- Dark Mode Toggle -->
         <div class="theme-toggle">
           <label for="darkModeToggle" class="darkModeToggleLabel">
             <input type="checkbox" id="darkModeToggle" />
@@ -104,7 +113,7 @@
     </header>
 
     <!-- Dashboard Content -->
-    <section class="dashboard-content" data-aos="fade-up" data-aos-duration="800">
+    <section class="dashboard-content">
       <div class="stats-grid">
         <!-- Example Stats Card -->
         <div class="stats-card">
@@ -134,46 +143,60 @@
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Dashboard Scripts -->
-  <script src="dashboard.js"></script>
   <script>
     AOS.init();
+  </script>
+  <script>
     document.addEventListener("DOMContentLoaded", () => {
-  // Mobile menu toggle
-  const menuToggle = document.getElementById("menuToggle");
-  const sidebar = document.querySelector(".dashboard-sidebar");
+      const menuToggle = document.getElementById("menuToggle");
+      const sidebar = document.querySelector(".dashboard-sidebar");
+      const main = document.querySelector(".dashboard-main");
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      const userProfileBtn = document.getElementById("userProfileBtn");
+      const userDropdownMenu = document.getElementById("userDropdownMenu");
+      const sidebarLogo = document.querySelector(".sidebar-logo");
+      const body = document.body;
 
-  // Show/hide sidebar on small screens
-  menuToggle.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
-  });
+      // Toggle the sidebar for ALL screens
+      menuToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("active");
+        main.classList.toggle("active");
+      });
 
-  // Dark mode toggle (optional)
-  const darkModeToggle = document.getElementById("darkModeToggle");
-  if (darkModeToggle) {
-    darkModeToggle.addEventListener("change", () => {
-      document.body.classList.toggle("dark-theme");
-    });
-  }
-});
+      // Dark mode toggle
+      if (darkModeToggle) {
+        darkModeToggle.addEventListener("change", () => {
+          body.classList.toggle("dark-theme");
 
-
-
-    // Toggle the user dropdown on click
-    const userProfileBtn = document.getElementById("userProfileBtn");
-    const userDropdownMenu = document.getElementById("userDropdownMenu");
-
-    userProfileBtn.addEventListener("click", (e) => {
-      e.stopPropagation(); // Prevent click from bubbling
-      userDropdownMenu.classList.toggle("show"); 
-    });
-
-    // Close user dropdown if clicked outside
-    document.addEventListener("click", (e) => {
-      if (!userProfileBtn.contains(e.target)) {
-        userDropdownMenu.classList.remove("show");
+          // If you want to swap the logo:
+          if (darkModeToggle.checked) {
+            fadeImage(sidebarLogo, sidebarLogo.dataset.dark);
+          } else {
+            fadeImage(sidebarLogo, sidebarLogo.dataset.light);
+          }
+        });
       }
-    });
 
+      // Fade out/in logo function
+      function fadeImage(imgElement, newSrc) {
+        imgElement.style.opacity = 0;
+        setTimeout(() => {
+          imgElement.src = newSrc;
+          imgElement.style.opacity = 1;
+        }, 300);
+      }
+
+      // User profile dropdown
+      userProfileBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        userDropdownMenu.classList.toggle("show");
+      });
+      document.addEventListener("click", (e) => {
+        if (!userProfileBtn.contains(e.target)) {
+          userDropdownMenu.classList.remove("show");
+        }
+      });
+    });
   </script>
 </body>
 </html>

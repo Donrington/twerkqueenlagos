@@ -17,41 +17,43 @@
 <body>
     <!-- Navbar -->
 
-   <nav id="mainNav">
-    <div class="logo"><a href="index.html">TQL</a></div>
+    <nav id="mainNav">
+      <div ><a href="index.html"><img src="logo/TWERK QUEEN LAGOS-02-logo-red.png" alt="logo" class="logo"></a></div>
+    
+      <!-- Hamburger Icon for Mobile -->
+      <div class="hamburger" id="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    
+      <!-- Navigation Links in a Rounded Container (Glassmorphic) -->
+      <div class="nav-menu" id="navMenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutus.html">About</a></li>
+    
+          <!-- Competition with a DROPDOWN -->
+          <li class="has-dropdown">
+            <a href="#competition">Competition</a>
+            <ul class="dropdown">
+              <li><a href="weeklyaud.html">Weekly Audition</a></li>
+              <li><a href="eliminate_rd.html">Elimination Rounds</a></li>
+              <li><a href="wildcard.html">Wildcard Battles</a></li>
+              <li><a href="final.html">Final Showdown</a></li>
+            </ul>
+          </li>
+    
+          <li><a href="Blog.html">Blog</a></li>
+          <li><a href="contactus.html">Contact</a></li>
+          <li><a href="register">Register</a></li>
+        </ul>
   
-    <!-- Hamburger Icon for Mobile -->
-    <div class="hamburger" id="hamburger">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-  
-    <!-- Navigation Links in a Rounded Container (Glassmorphic) -->
-    <div class="nav-menu" id="navMenu">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
-  
-        <!-- Competition with a DROPDOWN -->
-        <li class="has-dropdown">
-          <a href="#competition">Competition</a>
-          <ul class="dropdown">
-            <li><a href="weeklyaud.html">Weekly Audition</a></li>
-            <li><a href="eliminate_rd.html">Elimination Rounds</a></li>
-            <li><a href="wildcard.html">Wildcard Battles</a></li>
-            <li><a href="final.html">Final Showdown</a></li>
-          </ul>
-        </li>
-  
-        <li><a href="Blog.html">Blog</a></li>
-        <li><a href="contactus.html">Contact</a></li>
-      </ul>
-    </div>
-  
-    <!-- Call-to-Action Button -->
-    <a href="register.html" class="cta-btn" id="ctaBtn">Register</a>
-  </nav>
+      </div>
+    
+      <!-- Call-to-Action Button -->
+      <a href="register.html" class="cta-btn" id="ctaBtn">Let's Twerk</a>
+    </nav>
 
 
 
@@ -87,6 +89,7 @@
     </div>
 
     <div class="content-container">
+
       <!-- Left Side Content (Center Vertically) -->
       <div 
         class="content-text" 
@@ -105,7 +108,26 @@
         data-aos-duration="800" 
         data-aos-delay="200"
       >
-        <h2>Contestant Registration</h2>
+
+      <div class="herologo glitch"  >
+        <!-- Main Logo -->
+        <img
+          src="logo/logo_invert.png"
+          alt="TQL Hero Logo"
+          class="hero_logo"
+        />
+      
+        <!-- Glitch Layers -->
+        <div class="glitch__layers">
+          <div class="glitch__layer"></div>
+          <div class="glitch__layer"></div>
+          <div class="glitch__layer"></div>
+        </div>
+      </div>
+  
+     <div style="text-align:center;">
+      <h2>Contestant Registration</h2>
+     </div>
         <form id="registration-form">
           <div class="form-group">
             <label for="first-name">First Name</label>
@@ -165,6 +187,9 @@
       <div class="footer-content">
         <!-- Left Side: Text Content -->
         <div class="footer-left">
+          <div class="footerlogo">
+            <img src="logo/TQL LOGO 2-01.png" alt="logo" class="footer_logo">
+          </div>
           <h2 class="footer-title">Let's Keep on Dancing</h2>
           <p class="footer-subtitle">Join the Twerk Queen Lagos community and be part of the most dynamic dance event in the city!</p>
           <a href="mailto:hello@twerkqueenlagos.com" class="footer-email">hello@twerkqueenlagos.com</a>

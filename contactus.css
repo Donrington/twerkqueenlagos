@@ -256,6 +256,11 @@ nav ul li.has-dropdown:hover .dropdown {
     width: 7rem;
   
   }
+
+  .logo {
+    width: 4.5rem;
+    height: auto;
+  }
 }
 
 /* HAMBURGER OPEN STATE */
